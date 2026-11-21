@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore cmndrCRM, a personal developer workspace for website projects, tasks, local folders, and public GitHub activity.">
+  <title>cmndrCRM — A personal developer workspace</title>
+  <link rel="icon" href="./mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./showcase.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-bar wrap">
+    <a class="wordmark" href="./" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="34" height="34"><span>cmndr<strong>CRM</strong></span></a>
+    <nav aria-label="Showcase">
+      <a href="#walkthrough">Walkthrough</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 14.1A8.8 8.8 0 0 1 9.9 3.3 9 9 0 1 0 20.7 14.1Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+      </button>
+      <a class="button secondary" href="https://cmndrpaul-crm.vercel.app/login">Owner sign-in</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap">
+      <h1>My workspace for<br>projects, tasks,<br class="desktop-break"> and code.</h1>
+      <div class="hero-intro">
+        <p>A personal CRM for tracking website work, finding local projects, and keeping up with public GitHub activity.</p>
+        <a class="button primary" href="#walkthrough">Explore the workspace</a>
+      </div>
+    </section>
+
+    <section class="walkthrough" id="walkthrough" aria-labelledby="walkthrough-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 id="walkthrough-title">Inside the workspace</h2>
+          <p>Explore five views from the CRM with sample data.</p>
+        </div>
+        <div class="walkthrough-grid">
+          <div class="tabs" role="tablist" aria-label="Workspace views">
+            <button type="button" id="tab-dashboard" role="tab" aria-selected="true" aria-controls="preview" data-view="dashboard">Dashboard</button>
+            <button type="button" id="tab-projects" role="tab" aria-selected="false" aria-controls="preview" tabindex="-1" data-view="projects">Projects</button>
+            <button type="button" id="tab-tasks" role="tab" aria-selected="false" aria-controls="preview" tabindex="-1" data-view="tasks">Tasks</button>
+            <button type="button" id="tab-local" role="tab" aria-selected="false" aria-controls="preview" tabindex="-1" data-view="local">Local Projects</button>
+            <button type="button" id="tab-github" role="tab" aria-selected="false" aria-controls="preview" tabindex="-1" data-view="github">GitHub</button>
+          </div>
+          <div class="preview" id="preview" role="tabpanel" aria-labelledby="tab-dashboard">
+            <button class="laptop" type="button" aria-label="Enlarge Dashboard preview">
+              <span class="laptop-lid">
+                <img id="workspace-shot" src="./assets/dashboard-dark.webp" width="1320" height="840" alt="cmndrCRM Dashboard with sample projects and tasks" fetchpriority="high">
+                <span class="laptop-camera" aria-hidden="true"></span>
+              </span>
+              <span class="laptop-base" aria-hidden="true"></span>
+            </button>
+            <div class="preview-caption">
+              <p id="preview-description">See upcoming deadlines, recent website projects, and GitHub activity in one view.</p>
+              <button class="text-button" type="button" id="enlarge">Enlarge preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about wrap" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">Why I built it</h2>
+      <div>
+        <p>I wanted one place to see what I was working on, what was due next, and where to pick up the code. cmndrCRM brings those parts of my workflow together.</p>
+        <dl class="project-details">
+          <div><dt>Frontend</dt><dd>React, TypeScript, Vite, Tailwind CSS</dd></div>
+          <div><dt>Backend</dt><dd>Supabase Auth and PostgreSQL</dd></div>
+          <div><dt>GitHub</dt><dd>Public API with browser caching</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="faq wrap" aria-labelledby="faq-title">
+      <h2 id="faq-title">A few quick answers</h2>
+      <div>
+        <details><summary>Can I use the live CRM?</summary><p>The live workspace is for its approved owner. The walkthrough is open to everyone and uses sample data.</p></details>
+        <details><summary>What GitHub data does it show?</summary><p>Public repositories, pull requests, and commits from the linked GitHub account. The preview uses sample records.</p></details>
+        <details><summary>How do Local Projects work?</summary><p>Save Windows folder paths and copy ready-to-paste PowerShell or CMD commands from the app.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <a class="wordmark" href="./" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="28" height="28"><span>cmndr<strong>CRM</strong></span></a>
+    <a href="#main">Back to top</a>
+  </footer>
+  <dialog class="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-header"><h2 id="lightbox-title">Dashboard</h2><button type="button" aria-label="Close preview" autofocus>×</button></div>
+    <img id="large-shot" alt="">
+  </dialog>
+</body>
+</html>
