@@ -14,9 +14,11 @@
 - **Projects** groups website work by status with thumbnails and links.
 - **Tasks** shows priorities and subtasks in list and Kanban views.
 - **Local Projects** stores Windows folder paths and provides copyable PowerShell and CMD commands.
-- **GitHub** shows public repositories, pull requests, and commits.
+- **Repositories** shows public repository cards with commit activity charts and open pull request counts.
+- **Pull Requests** shows public pull requests by repository and status.
+- **Commits** shows recent commit messages, authors, and hashes.
 
-The showcase uses sample data. Switch the page theme to see the CRM in the opposite theme, or enlarge any laptop preview for a closer look.
+The showcase uses sample data. Switch the page theme to see the CRM in the opposite theme.
 
 ## Built with
 
