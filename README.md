@@ -6,6 +6,8 @@
 
 <p align="center">A walkthrough of my personal workspace for website projects, tasks, local folders, and public GitHub activity.</p>
 
+<p align="center"><a href="https://cmndrpaul-crm-showcase.vercel.app/">Visit the live showcase</a></p>
+
 ![cmndrCRM dashboard in dark mode, showing sample project totals, deadlines, and recent GitHub activity](assets/dashboard-dark.webp)
 
 ## What you can explore
