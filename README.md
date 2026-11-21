@@ -22,4 +22,4 @@ The showcase uses sample data. Switch the page theme to see the CRM in the oppos
 
 The showcase uses HTML, CSS, and JavaScript. The CRM uses React, TypeScript, Vite, Tailwind CSS, and Supabase.
 
-[Open the CRM](https://cmndrpaul-crm.vercel.app) · Owner sign-in required
+The live CRM is owner-only.
