@@ -13,10 +13,10 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="site-bar wrap">
-    <a class="wordmark" href="./" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="34" height="34"><span>cmndr<strong>CRM</strong></span></a>
+    <a class="wordmark" href="./" data-section="" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="34" height="34"><span>cmndr<strong>CRM</strong></span></a>
     <nav aria-label="Showcase">
-      <a href="#walkthrough">Walkthrough</a>
-      <a href="#about">About</a>
+      <a href="./walkthrough" data-section="walkthrough">Walkthrough</a>
+      <a href="./about" data-section="about">About</a>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
@@ -26,12 +26,12 @@
     </div>
     </div>
   </header>
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero wrap">
       <h1>My workspace for<br>projects, tasks,<br class="desktop-break"> and code.</h1>
       <div class="hero-intro">
         <p>A personal CRM for tracking website work, finding local projects, and keeping up with public GitHub activity.</p>
-        <a class="button primary" href="#walkthrough">Explore the workspace</a>
+        <a class="button primary" href="./walkthrough" data-section="walkthrough">Explore the workspace</a>
       </div>
     </section>
 
@@ -89,8 +89,8 @@
     </section>
   </main>
   <footer class="wrap footer">
-    <a class="wordmark" href="./" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="28" height="28"><span>cmndr<strong>CRM</strong></span></a>
-    <a href="#main">Back to top</a>
+    <a class="wordmark" href="./" data-section="" aria-label="cmndrCRM home"><img src="./mark.svg" alt="" width="28" height="28"><span>cmndr<strong>CRM</strong></span></a>
+    <a href="./" data-section="">Back to top</a>
   </footer>
 </body>
 </html>

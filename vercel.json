@@ -1,0 +1,7 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/walkthrough", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" }
+  ]
+}

@@ -82,3 +82,33 @@ themeToggle.addEventListener('click', () => {
 const systemTheme = () => preferredTheme.matches ? 'dark' : 'light';
 preferredTheme.addEventListener('change', () => { if (!choice) applyTheme(systemTheme()); });
 applyTheme(choice === 'light' || choice === 'dark' ? choice : systemTheme());
+
+function scrollToSection(section, behavior = 'auto') {
+  const target = document.getElementById(section);
+  if (target) target.scrollIntoView({ behavior });
+  else window.scrollTo({ top: 0, behavior });
+}
+
+const localFile = location.protocol === 'file:';
+for (const link of document.querySelectorAll('[data-section]')) {
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (!localFile && location.href !== link.href) history.pushState(null, '', link.href);
+    scrollToSection(link.dataset.section);
+  });
+}
+document.querySelector('.skip').addEventListener('click', event => {
+  event.preventDefault();
+  const main = document.querySelector('#main');
+  main.focus({ preventScroll: true });
+  main.scrollIntoView();
+});
+if (!localFile) {
+  const sectionFromPath = () => location.pathname.split('/').filter(Boolean).at(-1) ?? '';
+  history.scrollRestoration = 'manual';
+  window.addEventListener('popstate', () => scrollToSection(sectionFromPath(), 'instant'));
+  if (['walkthrough', 'about'].includes(sectionFromPath())) {
+    requestAnimationFrame(() => scrollToSection(sectionFromPath(), 'instant'));
+  }
+}
