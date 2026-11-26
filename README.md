@@ -8,7 +8,7 @@
 
 <p align="center"><a href="https://cmndrpaul-crm-showcase.vercel.app/">Visit the live showcase</a></p>
 
-![cmndrCRM dashboard in dark mode, showing sample project totals, deadlines, and recent GitHub activity](assets/dashboard-dark.webp)
+![cmndrCRM dashboard in dark mode, showing sample project totals, deadlines, and recent GitHub activity](assets/walkthrough-v1/dashboard-dark.webp)
 
 ## What you can explore
 
@@ -21,6 +21,8 @@
 - **Commits** shows recent commit messages, authors, and hashes.
 
 The showcase uses sample data. Switch the page theme to see the CRM in the opposite theme.
+
+When replacing walkthrough screenshots, publish them in a new versioned directory and update its path in `index.html`, `showcase.js`, this README, and the cache rule in `vercel.json`. Browsers may keep earlier URLs for a year.
 
 ## Built with
 

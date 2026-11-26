@@ -16,8 +16,10 @@ const tabs = [...document.querySelectorAll('[role="tab"]')];
 const preview = document.querySelector('#preview');
 const description = document.querySelector('#preview-description');
 const display = document.querySelector('#workspace-shot');
+const screenshotPath = './assets/walkthrough-v1/';
 let active = 'dashboard';
 let request = 0;
+let preloadRun = 0;
 let choice;
 
 try { choice = localStorage.getItem('cmndrcrm.showcase.theme'); } catch { /* The page still follows the system theme. */ }
@@ -25,27 +27,41 @@ try { choice = localStorage.getItem('cmndrcrm.showcase.theme'); } catch { /* The
 function applyTheme(theme) {
   root.dataset.theme = theme;
   themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-  renderPreview();
+  const run = ++preloadRun;
+  const suffix = theme === 'dark' ? '-light.webp' : '-dark.webp';
+  void renderPreview().then(async () => {
+    await display.decode();
+    for (const view of Object.keys(views)) {
+      if (run !== preloadRun) return;
+      const source = screenshotPath + view + suffix;
+      if (display.getAttribute('src') === source) continue;
+      const image = new Image();
+      image.fetchPriority = 'low';
+      image.src = source;
+      await image.decode().catch(() => {});
+    }
+  }).catch(() => {});
 }
 
-function renderPreview() {
+async function renderPreview() {
   const [title, caption] = views[active];
-  const source = './assets/' + active + (root.dataset.theme === 'dark' ? '-light.webp' : '-dark.webp');
+  const source = screenshotPath + active + (root.dataset.theme === 'dark' ? '-light.webp' : '-dark.webp');
   const alt = 'cmndrCRM ' + title + ' with sample data';
   description.textContent = caption;
   const current = ++request;
   if (display.getAttribute('src') === source) return;
   const image = new Image();
   image.src = source;
-  image.decode().then(() => {
+  try {
+    await image.decode();
     if (request !== current) return;
     display.src = source;
     display.alt = alt;
     if (!reducedMotion.matches) display.animate([{ opacity: .48 }, { opacity: 1 }], { duration: 230, easing: 'ease-out' });
-  }).catch(() => {
+  } catch {
     if (request !== current) return;
     description.textContent = 'This preview could not load. Choose another view or reload the page.';
-  });
+  }
 }
 
 function selectTab(tab) {
